@@ -13,18 +13,43 @@ namespace Optical_Distance
 
             System.Console.WriteLine();
 
-            System.Console.WriteLine("The distance to which light lasted for {0} seconds: {1} Km",time, Distance);
+            if (time<=60)
+            {
+
+                System.Console.WriteLine
+                    ("The distance that light travels in time {0} second/seconds is equal to: {1} Km", time, Distance.ToString("n0"));
+                
+            }
+
+            else if (time>60)
+            {
+                
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} minute/minutes: {1} Km", time/60, Distance.ToString("n0"));
+
+             
+            }
+
+            else if (time>=3600)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} houre/houres: {1} Km", time/3600, Distance.ToString("n0"));
+
+             
+            }
 
             return Distance;
 
-            
+
+
         }
 
 
 
         static void Main(string[] args)
         {
-            int Time;
+            int TimeSec,TimeMin,TimeHur,TimeDay,TimeWek,TimeMon,TimeYer,TimeCnt;
 
             string SelectTime;
 
@@ -35,32 +60,78 @@ namespace Optical_Distance
 
             System.Console.WriteLine("Please specify the time unit.");
             System.Console.WriteLine();
-            System.Console.Write
-                ("Secod[1], " + "Minute[2], " + "Hour[3], " + 
-                "Day[4], " + "Week[5], " + "Month[6], " + 
-                "Year[7], " + "Centuries[8]: ");
-            SelectTime = System.Console.ReadLine();
 
-            switch (SelectTime)
+            do
             {
-                case "1":
-
-                    System.Console.WriteLine();
-                    System.Console.Write("Please enter the SECONDS: ");
-                    Time = int.Parse(System.Console.ReadLine());
-
-                    LightDistance(Time);
+                System.Console.Write
+                ("Secod[1], " + "Minute[2], " + "Hour[3], " +
+                "Day[4], " + "Week[5], " + "Month[6], " +
+                "Year[7], " + "Centuries[8]: ");
+                SelectTime = System.Console.ReadLine();
 
 
-                    break;
-                
-                
-                
-                    
+                switch (SelectTime)
+                {
+                    case "1":
 
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the SECONDS: ");
+                        TimeSec = int.Parse(System.Console.ReadLine());
 
-            }
+                        LightDistance(TimeSec);
+                        System.Console.WriteLine();
 
+                        break;
+
+                    case "2":
+
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the MINUTES: ");
+                        TimeMin = int.Parse(System.Console.ReadLine());
+
+                        TimeMin = TimeMin * 60;
+
+                        LightDistance(TimeMin);
+                        System.Console.WriteLine();
+
+                        break;
+
+                    case "3":
+
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the HOURES: ");
+                        TimeMin = int.Parse(System.Console.ReadLine());
+
+                        TimeMin = TimeMin * 3600;
+
+                        LightDistance(TimeMin);
+                        System.Console.WriteLine();
+
+                        break;
+
+                    case "4":
+
+                        break;
+
+                    case "5":
+
+                        break;
+
+                    case "6":
+
+                        break;
+
+                    case "7":
+
+                        break;
+
+                    case "8":
+
+                        break;
+
+                }
+
+            } while (true);
 
 
 
