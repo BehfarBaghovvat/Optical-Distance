@@ -5,39 +5,85 @@ namespace Optical_Distance
     class Program
     {
 
-        static long LightDistance(int time)
+        static decimal LightDistance(decimal time)
         {
-            long Distance=0;
+            decimal Distance=0;
 
             Distance = time * 300000;
 
             System.Console.WriteLine();
 
-            if (time<=60)
+            if (time<60)
             {
 
                 System.Console.WriteLine
-                    ("The distance that light travels in time {0} second/seconds is equal to: {1} Km", time, Distance.ToString("n0"));
+                    ("The distance that light travels in time {0} Second/Seconds is equal to: {1} Km", time, Distance.ToString("n0"));
                 
             }
 
-            else if (time>60)
+            else if (time>=60 && time < 3600)
             {
                 
                 System.Console.WriteLine
-                    ("The distance to which light lasted for {0} minute/minutes: {1} Km", time/60, Distance.ToString("n0"));
+                    ("The distance to which light lasted for {0} Minute/Minutes: {1} Km", time/60, Distance.ToString("n0"));
 
              
             }
 
-            else if (time>=3600)
+            else if (time>=3600 && time < 86400)
             {
 
                 System.Console.WriteLine
-                    ("The distance to which light lasted for {0} houre/houres: {1} Km", time/3600, Distance.ToString("n0"));
+                    ("The distance to which light lasted for {0} Houre/Houres: {1} Km", time/3600, Distance.ToString("n0"));
 
              
             }
+
+            else if (time >= 86400 && time < 604800)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} Day/Days: {1} Km", time / time/86400, Distance.ToString("n0"));
+
+
+            }
+
+            else if (time >=604800 && time < 2592000)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} Week/Weeks: {1} Km", time / 604800, Distance.ToString("n0"));
+
+
+            }
+
+            else if (time >= 2592000 && time < 31536000)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} Month/Months: {1} Km", time / 3600, Distance.ToString("n0"));
+
+
+            }
+
+            else if (time >= 31536000 && time < 3153600000)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} Year/Years: {1} Km", time / 31536000, Distance.ToString("n0"));
+
+
+            }
+
+            else if (time >= 3153600000)
+            {
+
+                System.Console.WriteLine
+                    ("The distance to which light lasted for {0} Centurie/Centuries: {1} Km", time / 3153600000, Distance.ToString("n0"));
+
+
+            }
+
 
             return Distance;
 
@@ -49,7 +95,8 @@ namespace Optical_Distance
 
         static void Main(string[] args)
         {
-            int TimeSec,TimeMin,TimeHur,TimeDay,TimeWek,TimeMon,TimeYer,TimeCnt;
+            int TimeSec, TimeMin, TimeHur, TimeDay, TimeWek, TimeMon, TimeYer;
+            long TimeCnt;
 
             string SelectTime;
 
@@ -100,50 +147,101 @@ namespace Optical_Distance
 
                         System.Console.WriteLine();
                         System.Console.Write("Please enter the HOURES: ");
-                        TimeMin = int.Parse(System.Console.ReadLine());
+                        TimeHur = int.Parse(System.Console.ReadLine());
 
-                        TimeMin = TimeMin * 3600;
+                        TimeHur = TimeHur * 3600;
 
-                        LightDistance(TimeMin);
+                        LightDistance(TimeHur);
                         System.Console.WriteLine();
 
                         break;
 
                     case "4":
 
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the DAY: ");
+                        TimeDay = int.Parse(System.Console.ReadLine());
+
+                        TimeDay = TimeDay * 86400;
+
+                        LightDistance(TimeDay);
+                        System.Console.WriteLine();
+
                         break;
 
                     case "5":
+
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the WEEK: ");
+                        TimeWek = int.Parse(System.Console.ReadLine());
+
+                        TimeWek = TimeWek * 604800;
+
+                        LightDistance(TimeWek);
+                        System.Console.WriteLine();
 
                         break;
 
                     case "6":
 
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the MONTH: ");
+                        TimeMon = int.Parse(System.Console.ReadLine());
+
+                        TimeMon = TimeMon * 2592000;
+
+                        LightDistance(TimeMon);
+                        System.Console.WriteLine();
+
                         break;
 
                     case "7":
+
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the YEAR: ");
+                        TimeYer = int.Parse(System.Console.ReadLine());
+
+                        TimeYer = TimeYer * 31536000;
+
+                        LightDistance(TimeYer);
+                        System.Console.WriteLine();
 
                         break;
 
                     case "8":
 
+                        System.Console.WriteLine();
+                        System.Console.Write("Please enter the CENTURIES: ");
+                        TimeCnt = int.Parse(System.Console.ReadLine());
+
+                        TimeCnt = TimeCnt * 3153600000;
+
+                        LightDistance(TimeCnt);
+                        System.Console.WriteLine();
+
                         break;
+
+                    case "Q":
+                        System.Environment.Exit(0);
+                        break;
+
+                    case "q":
+                        System.Environment.Exit(0);
+                        break;
+
+                    default:
+
+                        System.Console.WriteLine("Please enter the correct order...!");
+
+                        System.Console.WriteLine();
+
+                        break;
+
 
                 }
 
-            } while (true);
-
-
-
-
-
-
-
-
-
-
-            System.Console.WriteLine();
-            System.Console.ReadLine();
+            } while (true);            
+            
         }
     }
 }
