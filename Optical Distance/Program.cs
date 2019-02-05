@@ -4,7 +4,12 @@ namespace Optical_Distance
 {
     class Program
     {
-
+        #region Light Distance
+        /// <summary>
+        /// Light Distance Method
+        /// </summary>
+        /// <param name="time">Argument</param>
+        /// <returns> Distance </returns>
         static decimal LightDistance(decimal time)
         {
             //----Define the distance variable for which it has a zero value----
@@ -68,7 +73,6 @@ namespace Optical_Distance
                 System.Console.WriteLine
                     ("The distance to which light lasted for {0} Day/Days: {1} Km", time / time/86400, Distance.ToString("n0"));
 
-
             }
 
             //-------------------------------------------------------------------------------------------------
@@ -127,14 +131,9 @@ namespace Optical_Distance
 
             }
 
-
             return Distance;
-
-
-
         }
-
-
+        #endregion /Light Distance
 
         static void Main(string[] args)
         {
@@ -143,7 +142,8 @@ namespace Optical_Distance
 
             string SelectTime;
 
-            System.Console.WriteLine("        ========Determine the distance traveled by light========");
+            System.Console.WriteLine(
+                "        ========Determine the distance traveled by light========");
 
             System.Console.WriteLine();
             System.Console.WriteLine();
@@ -279,7 +279,6 @@ namespace Optical_Distance
                         System.Console.WriteLine();
 
                         break;
-
 
                 }
 
